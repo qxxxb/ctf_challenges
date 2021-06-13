@@ -18,7 +18,7 @@ users have to write "obfuscated" binaries that angr won't be able to easily
 solve.
 
 An easy way to do this is [path explosion](https://youtu.be/VJoNraxFliM), which
-will cause will cause angr to use an exponential amount of memory.
+will cause angr to use an exponential amount of memory.
 
 Here's my solution `solve.c`:
 
