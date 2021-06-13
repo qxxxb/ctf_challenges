@@ -12,17 +12,17 @@ favorite and the last being my least favorite.
 
 | Challenge         | Category    | Difficulty   | Solves    | Description                                                | Co-authors    |
 | ----------------- | ----------- | ------------ | --------- | ---------------------------------------------------------- | ------------- |
-| [angrbox]         | misc        | ★★☆☆☆        | ?         | Players have to make a whitebox                            |               |
-| [Casino]          | web         | ★★☆☆☆        | ?         | CSS injection to GET endpoint                              |               |
-| [Poison Prime]    | crypto      | ★★★☆☆        | ?         | Diffie-Hellman small subgroup attack with Mersenne prime   |               |
-| [Sticky Notes]    | web         | ★★★★★        | ?         | HTTP desync using multi-byte chars                         |               |
-| [Lord Saturday]   | pwn         | ★★☆☆☆        | ?         | Sudo exploit: Baron Samedit CVE-2021-3156                  | Robin Jadoul  |
-| [sockcamp]        | pwn         | ★★★★☆        | ?         | Kernel pwn: escape seccomp with 1 bit flip                 |               |
-| [imgfiltrate]     | web         | ★★☆☆☆        | ?         | Exfiltrate an image using `<canvas>`                       |               |
-| [Puppet]          | web         | ★★★★☆        | ?         | Abuse Chrome DevTools protocol for arbitrary file read     |               |
-| [worm 2]            | pwn         | ★★★☆☆        | ?         | Players have to write a self-duplicating exploit           |               |
-| [lonk]            | rev         | ★☆☆☆☆        | ?         | Patch a slow math library on linked lists                  |               |
-| [Double]          | forensics   | ★☆☆☆☆        | ?         | Volatility memory forensics: recover a file from Docker    |               |
+| [angrbox]         | misc        | ★★☆☆☆        | 22        | Players have to make a whitebox                            |               |
+| [Casino]          | web         | ★★☆☆☆        | 34        | CSS injection to GET endpoint                              |               |
+| [Poison Prime]    | crypto      | ★★★☆☆        | 4         | Diffie-Hellman small subgroup attack with Mersenne prime   |               |
+| [Sticky Notes]    | web         | ★★★★★        | 3         | HTTP desync using multi-byte chars                         |               |
+| [Lord Saturday]   | pwn         | ★★☆☆☆        | 13        | Sudo exploit: Baron Samedit CVE-2021-3156                  | Robin Jadoul  |
+| [sockcamp]        | pwn         | ★★★★☆        | 3         | Kernel pwn: escape seccomp with 1 bit flip                 |               |
+| [imgfiltrate]     | web         | ★★☆☆☆        | 27        | Exfiltrate an image using `<canvas>`                       |               |
+| [Puppet]          | web         | ★★★★☆        | 10        | Abuse Chrome DevTools protocol for arbitrary file read     |               |
+| [worm 2]          | pwn         | ★★★☆☆        | 8         | Players have to write a self-duplicating exploit           |               |
+| [lonk]            | rev         | ★☆☆☆☆        | 43        | Patch a slow math library on linked lists                  |               |
+| [Double]          | forensics   | ★☆☆☆☆        | 13        | Volatility memory forensics: recover a file from Docker    |               |
 
 [angrbox]: 2021/ccc/misc/angrbox/solve
 [Casino]: 2021/ccc/web/casino/solve
