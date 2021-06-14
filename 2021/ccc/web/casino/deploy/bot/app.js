@@ -2,7 +2,7 @@ import Discord from 'discord.js'
 import fetch from 'node-fetch'
 import puppeteer from 'puppeteer'
 
-const prefix = '!'
+const prefix = '$'
 const client = new Discord.Client()
 const apiUrl = 'http://172.16.0.10:3000'
 
@@ -132,8 +132,20 @@ async function rich (message) {
   message.channel.send(lines.join('\n'))
 }
 
+const cooldown = 5000 // Cooldown betwen requesting badges in milliseconds
+const cooldownTable = {} // Users -> last time requested
+
 async function badge (message, css) {
   const user = message.author
+
+  const now = new Date().getTime()
+  if (user.tag in cooldownTable && now - cooldownTable[user.tag] < cooldown) {
+    message.channel.send('Slow it down')
+    return
+  } else {
+    cooldownTable[user.tag] = now
+  }
+
   let balance = await getBalance(user)
   if (balance === undefined) {
     addUser(user)

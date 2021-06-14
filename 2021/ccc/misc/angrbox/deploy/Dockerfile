@@ -20,10 +20,11 @@ useradd -m inmate && \
 #
 # Set up nsjail chroot
 mkdir /chroot/ && \
-chown inmate:inmate /chroot && \
+chown root:inmate /chroot && \
 chmod 770 /chroot && \
 chmod 440 /opt/app/flag.txt && \
 chmod +x /opt/app/run_jail.sh && \
+chown root:inmate /opt/jailyard && \
 chmod +x /opt/jailyard/compile.sh && \
 #
 mkdir /opt/transfer && \

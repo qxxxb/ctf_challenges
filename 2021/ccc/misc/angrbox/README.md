@@ -8,6 +8,12 @@ Challenge:
 [*] - If I find the key, YOU LOSE
 ```
 
+The server tries to solve user-supplied binaries with angr. To get the flag,
+users have to write "obfuscated" binaries that angr won't be able to easily
+solve.
+
+An easy way to do this is [path explosion](https://youtu.be/VJoNraxFliM).
+
 ## Deployment notes
 
 To pack `angrbox.zip` do `./pack_dist.sh` (should already be packed tho since
